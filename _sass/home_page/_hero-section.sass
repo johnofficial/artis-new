@@ -9,11 +9,24 @@
     height: 100%
     //flex-shrink: 0
   .text-section
-    padding-left: 6rem
-    background: $primary
+    //background: $primary
     display: flex
     flex-direction: column
     justify-content: space-around
+    position: relative
+    &:before
+      position: absolute
+      display: block
+      content: ""
+      width: 0%
+      height: 100%
+      background: $primary
+    &.animated
+      &:before
+        animation-name: fullWidth
+        animation-duration: 2s
+        animation-fill-mode: forwards
+        animation-timing-function: cubic-bezier(0, 1.38, 1, 0.16)
 
     .text-section-wrap
       display: block
@@ -33,7 +46,6 @@
         color: $secondary
   .image-section
     background: $white
-    padding-right: 6rem
     display: flex
     flex-direction: column
     justify-content: space-around
@@ -43,8 +55,53 @@
       transition: 1.5s
       transition-delay: .9s
       position: absolute
-      right: -100%
+      right: -40rem
       max-width: 40rem
+      @media (max-width: 480px)
+        max-width: 90vw
       &.animated
         right: 6rem
         opacity: 1
+        @media (max-width: 776px)
+          right: 2rem
+        @media (max-width: 776px)
+          right: 0
+
+
+
+
+@media ( max-width: 776px )
+  .hero-section
+    .text-section
+      width: 100%
+      .hero-title
+        max-width: 400px
+      p
+        font-size: 1.2rem
+      h1
+        font-size: 2.4rem
+    .image-section
+      width: 0
+      img
+        bottom: 6rem
+
+@media ( max-width: 480px )
+  .hero-section
+    .text-section
+      .hero-title, .hero-description
+        max-width: 95vw
+      .hero-description
+        margin-bottom: 2rem
+      .btn:first-of-type
+        margin-right: 100%
+      .btn:last-of-type
+        margin-top: 1rem
+
+
+
+
+@keyframes fullWidth
+  0%
+    width: 0%
+  100%
+    width: 100%

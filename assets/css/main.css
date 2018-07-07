@@ -14,6 +14,9 @@ html {
 
 body {
   margin: .5rem; }
+  @media (max-width: 480px) {
+    body {
+      margin: 0; } }
 
 * {
   font-family: "Helvetica Neue", "Roboto", sans-serif;
@@ -45,6 +48,21 @@ body {
 
 .half-width-section {
   width: 50%; }
+
+.main-left-padding {
+  padding-left: 6rem; }
+  @media (max-width: 776px) {
+    .main-left-padding {
+      padding-left: 2rem; } }
+  @media (max-width: 480px) {
+    .main-left-padding {
+      padding-left: 0; } }
+
+.main-right-padding {
+  padding-right: 6rem; }
+  @media (max-width: 776px) {
+    .main-right-padding {
+      padding-right: 2rem; } }
 
 .cool-text {
   position: relative; }
@@ -295,14 +313,29 @@ body {
     width: 50%;
     height: 100%; }
   .hero-section .text-section {
-    padding-left: 6rem;
-    background: rgba(0, 0, 0, 0.91);
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
         flex-direction: column;
     -ms-flex-pack: distribute;
-        justify-content: space-around; }
+        justify-content: space-around;
+    position: relative; }
+    .hero-section .text-section:before {
+      position: absolute;
+      display: block;
+      content: "";
+      width: 0%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.91); }
+    .hero-section .text-section.animated:before {
+      -webkit-animation-name: fullWidth;
+              animation-name: fullWidth;
+      -webkit-animation-duration: 2s;
+              animation-duration: 2s;
+      -webkit-animation-fill-mode: forwards;
+              animation-fill-mode: forwards;
+      -webkit-animation-timing-function: cubic-bezier(0, 1.38, 1, 0.16);
+              animation-timing-function: cubic-bezier(0, 1.38, 1, 0.16); }
     .hero-section .text-section .text-section-wrap {
       display: block;
       width: 100%;
@@ -321,7 +354,6 @@ body {
         color: #6EBDF8; }
   .hero-section .image-section {
     background: white;
-    padding-right: 6rem;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
@@ -334,8 +366,53 @@ body {
       transition: 1.5s;
       transition-delay: .9s;
       position: absolute;
-      right: -100%;
+      right: -40rem;
       max-width: 40rem; }
+      @media (max-width: 480px) {
+        .hero-section .image-section img {
+          max-width: 90vw; } }
       .hero-section .image-section img.animated {
         right: 6rem;
         opacity: 1; }
+        @media (max-width: 776px) {
+          .hero-section .image-section img.animated {
+            right: 2rem; } }
+        @media (max-width: 776px) {
+          .hero-section .image-section img.animated {
+            right: 0; } }
+
+@media (max-width: 776px) {
+  .hero-section .text-section {
+    width: 100%; }
+    .hero-section .text-section .hero-title {
+      max-width: 400px; }
+    .hero-section .text-section p {
+      font-size: 1.2rem; }
+    .hero-section .text-section h1 {
+      font-size: 2.4rem; }
+  .hero-section .image-section {
+    width: 0; }
+    .hero-section .image-section img {
+      bottom: 6rem; } }
+
+@media (max-width: 480px) {
+  .hero-section .text-section .hero-title, .hero-section .text-section .hero-description {
+    max-width: 95vw; }
+  .hero-section .text-section .hero-description {
+    margin-bottom: 2rem; }
+  .hero-section .text-section .btn:first-of-type {
+    margin-right: 100%; }
+  .hero-section .text-section .btn:last-of-type {
+    margin-top: 1rem; } }
+
+@-webkit-keyframes fullWidth {
+  0% {
+    width: 0%; }
+  100% {
+    width: 100%; } }
+
+@keyframes fullWidth {
+  0% {
+    width: 0%; }
+  100% {
+    width: 100%; } }
