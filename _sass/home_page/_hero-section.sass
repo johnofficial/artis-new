@@ -1,0 +1,50 @@
+.hero-section
+  width: 100%
+  box-sizing: border-box
+  height: calc( 100vh - 6rem )
+  display: flex
+  overflow: hidden
+  .text-section, .image-section
+    width: 50%
+    height: 100%
+    //flex-shrink: 0
+  .text-section
+    padding-left: 6rem
+    background: $primary
+    display: flex
+    flex-direction: column
+    justify-content: space-around
+
+    .text-section-wrap
+      display: block
+      width: 100%
+      z-index: 999
+    .hero-title
+      margin-bottom: 1rem
+      max-width: 300px
+      h1
+        line-height: 2
+        font-weight: bold
+    .hero-description
+      max-width: 400px
+      margin-bottom: 3rem
+      p
+        font-weight: bold
+        color: $secondary
+  .image-section
+    background: $white
+    padding-right: 6rem
+    display: flex
+    flex-direction: column
+    justify-content: space-around
+    position: relative
+    img
+      opacity: 0
+      transition: 1.5s
+      transition-delay: .9s
+      position: absolute
+      right: -100%
+      max-width: 40rem
+      &.animated
+        right: 6rem
+        opacity: 1

@@ -1,0 +1,76 @@
+.pad
+	@media(max-width: 1000px)
+		padding-left: 50px
+		padding-right: 50px
+	@media(max-width: 775px)
+		padding-left: 20px
+		padding-right: 20px
+	@media(max-width: 340px)
+		padding-left: 10px
+		padding-right: 10px
+
+.w-100-percent
+	width: 100%
+.mw-1000-px
+	max-width: 1000px 
+	&.center-container
+		margin: auto 
+
+
+.half-width-section
+  width: 50%
+
+
+
+// Text with background behind
+.cool-text
+  position: relative
+  .text
+    z-index: 999
+    position: absolute
+    margin: 0
+    padding-left: 1rem
+    padding-right: 1rem
+  .span-wrap
+    z-index: 0
+    top: 0
+    width: 100%
+    position: absolute
+    display: flex
+    flex-direction: column
+    justify-content: space-around
+    transition: .3s
+    transition-delay: .3s
+    &.animated
+      span
+        width: 100%
+    span
+      display: block
+      width: 0
+      transition: .9s
+
+
+
+$sizes: (xs: 0.5, s: 1, m: 1.5, l: 2, xl: 2.5, xxl: 3, ) // Sizes in REM
+$sides: (top, bottom, left, right)
+$colors: (primary: $primary, secondary: $secondary)
+
+// Spacing
+@each $name, $value in $sizes
+  @each $side in $sides
+    .m#{str-slice($side, 0, 1)}-#{$name}
+      margin-#{$side}: #{$value}rem
+
+    .p#{str-slice($side, 0, 1)}-#{$name}
+      padding-#{$side}: #{$value}rem
+
+
+// Background colors, btn backgrounds
+@each $name, $value in $colors
+  .bg-#{$name}
+    background-color: #{$value}
+
+  .btn-#{$name}
+    background-color: #{$value}
+    &:before
+      background-color: #{$value}

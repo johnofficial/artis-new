@@ -1,0 +1,341 @@
+/* Reset text colors */
+h1, h2, h3, h4, h5, h6, p, b, li {
+  color: black; }
+
+/* Set Roboto as default font family */
+html {
+  font-size: 16px; }
+  @media (max-width: 776px) {
+    html {
+      font-size: 14px; } }
+  @media (max-width: 380px) {
+    html {
+      font-size: 12px; } }
+
+body {
+  margin: .5rem; }
+
+* {
+  font-family: "Helvetica Neue", "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.2; }
+
+@media (max-width: 1000px) {
+  .pad {
+    padding-left: 50px;
+    padding-right: 50px; } }
+
+@media (max-width: 775px) {
+  .pad {
+    padding-left: 20px;
+    padding-right: 20px; } }
+
+@media (max-width: 340px) {
+  .pad {
+    padding-left: 10px;
+    padding-right: 10px; } }
+
+.w-100-percent {
+  width: 100%; }
+
+.mw-1000-px {
+  max-width: 1000px; }
+  .mw-1000-px.center-container {
+    margin: auto; }
+
+.half-width-section {
+  width: 50%; }
+
+.cool-text {
+  position: relative; }
+  .cool-text .text {
+    z-index: 999;
+    position: absolute;
+    margin: 0;
+    padding-left: 1rem;
+    padding-right: 1rem; }
+  .cool-text .span-wrap {
+    z-index: 0;
+    top: 0;
+    width: 100%;
+    position: absolute;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    transition: .3s;
+    transition-delay: .3s; }
+    .cool-text .span-wrap.animated span {
+      width: 100%; }
+    .cool-text .span-wrap span {
+      display: block;
+      width: 0;
+      transition: .9s; }
+
+.mt-xs {
+  margin-top: 0.5rem; }
+
+.pt-xs {
+  padding-top: 0.5rem; }
+
+.mb-xs {
+  margin-bottom: 0.5rem; }
+
+.pb-xs {
+  padding-bottom: 0.5rem; }
+
+.ml-xs {
+  margin-left: 0.5rem; }
+
+.pl-xs {
+  padding-left: 0.5rem; }
+
+.mr-xs {
+  margin-right: 0.5rem; }
+
+.pr-xs {
+  padding-right: 0.5rem; }
+
+.mt-s {
+  margin-top: 1rem; }
+
+.pt-s {
+  padding-top: 1rem; }
+
+.mb-s {
+  margin-bottom: 1rem; }
+
+.pb-s {
+  padding-bottom: 1rem; }
+
+.ml-s {
+  margin-left: 1rem; }
+
+.pl-s {
+  padding-left: 1rem; }
+
+.mr-s {
+  margin-right: 1rem; }
+
+.pr-s {
+  padding-right: 1rem; }
+
+.mt-m {
+  margin-top: 1.5rem; }
+
+.pt-m {
+  padding-top: 1.5rem; }
+
+.mb-m {
+  margin-bottom: 1.5rem; }
+
+.pb-m {
+  padding-bottom: 1.5rem; }
+
+.ml-m {
+  margin-left: 1.5rem; }
+
+.pl-m {
+  padding-left: 1.5rem; }
+
+.mr-m {
+  margin-right: 1.5rem; }
+
+.pr-m {
+  padding-right: 1.5rem; }
+
+.mt-l {
+  margin-top: 2rem; }
+
+.pt-l {
+  padding-top: 2rem; }
+
+.mb-l {
+  margin-bottom: 2rem; }
+
+.pb-l {
+  padding-bottom: 2rem; }
+
+.ml-l {
+  margin-left: 2rem; }
+
+.pl-l {
+  padding-left: 2rem; }
+
+.mr-l {
+  margin-right: 2rem; }
+
+.pr-l {
+  padding-right: 2rem; }
+
+.mt-xl {
+  margin-top: 2.5rem; }
+
+.pt-xl {
+  padding-top: 2.5rem; }
+
+.mb-xl {
+  margin-bottom: 2.5rem; }
+
+.pb-xl {
+  padding-bottom: 2.5rem; }
+
+.ml-xl {
+  margin-left: 2.5rem; }
+
+.pl-xl {
+  padding-left: 2.5rem; }
+
+.mr-xl {
+  margin-right: 2.5rem; }
+
+.pr-xl {
+  padding-right: 2.5rem; }
+
+.mt-xxl {
+  margin-top: 3rem; }
+
+.pt-xxl {
+  padding-top: 3rem; }
+
+.mb-xxl {
+  margin-bottom: 3rem; }
+
+.pb-xxl {
+  padding-bottom: 3rem; }
+
+.ml-xxl {
+  margin-left: 3rem; }
+
+.pl-xxl {
+  padding-left: 3rem; }
+
+.mr-xxl {
+  margin-right: 3rem; }
+
+.pr-xxl {
+  padding-right: 3rem; }
+
+.bg-primary {
+  background-color: rgba(0, 0, 0, 0.91); }
+
+.btn-primary {
+  background-color: rgba(0, 0, 0, 0.91); }
+  .btn-primary:before {
+    background-color: rgba(0, 0, 0, 0.91); }
+
+.bg-secondary {
+  background-color: #6EBDF8; }
+
+.btn-secondary {
+  background-color: #6EBDF8; }
+  .btn-secondary:before {
+    background-color: #6EBDF8; }
+
+.site-header {
+  width: 100%;
+  height: 6rem;
+  background: white; }
+
+.site-footer {
+  width: 100%;
+  height: 16rem;
+  background: rgba(0, 0, 0, 0.91);
+  margin-top: 100px; }
+
+.btn {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  color: white;
+  border: 6px solid white;
+  position: relative;
+  white-space: nowrap;
+  display: inline-block; }
+  .btn span {
+    display: inline-block;
+    transition-duration: .3s; }
+  .btn:before {
+    display: block;
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 0%;
+    right: -6px;
+    top: calc( 50% - 35%);
+    transition: .3s; }
+  .btn i {
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    transition: .3s; }
+  .btn:hover span {
+    -webkit-transform: translateX(1.1rem);
+            transform: translateX(1.1rem); }
+  .btn:hover:before {
+    height: 70%; }
+  .btn:hover i {
+    -webkit-transform: scale(2) translateX(1.1rem);
+            transform: scale(2) translateX(1.1rem); }
+
+.hero-section {
+  width: 100%;
+  box-sizing: border-box;
+  height: calc( 100vh - 6rem);
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden; }
+  .hero-section .text-section, .hero-section .image-section {
+    width: 50%;
+    height: 100%; }
+  .hero-section .text-section {
+    padding-left: 6rem;
+    background: rgba(0, 0, 0, 0.91);
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around; }
+    .hero-section .text-section .text-section-wrap {
+      display: block;
+      width: 100%;
+      z-index: 999; }
+    .hero-section .text-section .hero-title {
+      margin-bottom: 1rem;
+      max-width: 300px; }
+      .hero-section .text-section .hero-title h1 {
+        line-height: 2;
+        font-weight: bold; }
+    .hero-section .text-section .hero-description {
+      max-width: 400px;
+      margin-bottom: 3rem; }
+      .hero-section .text-section .hero-description p {
+        font-weight: bold;
+        color: #6EBDF8; }
+  .hero-section .image-section {
+    background: white;
+    padding-right: 6rem;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    position: relative; }
+    .hero-section .image-section img {
+      opacity: 0;
+      transition: 1.5s;
+      transition-delay: .9s;
+      position: absolute;
+      right: -100%;
+      max-width: 40rem; }
+      .hero-section .image-section img.animated {
+        right: 6rem;
+        opacity: 1; }

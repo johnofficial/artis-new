@@ -1,0 +1,13 @@
+
+markdown: redcarpet
+highlighter: pygments # or rouge or null
+exclude: ["node_modules", "gulpfile.js", "package.json"]
+include: ["_pages"]
+
+name: Jovan Savic
+title: Jekyll Gulp Starter Kit
+baseurl: /
+keywords: artis, image
+
+home_title: Architectural & <br> structural metalwork
+home_description: Creating a customized solution of your dreams. Let a team of highly skilled draughtsmen, fabricators and designers to give the best of themselves when delivering quality and satisfaction along with the work of art YOU desire.
