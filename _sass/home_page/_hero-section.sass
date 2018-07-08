@@ -4,17 +4,19 @@
   height: calc( 100vh - 6rem )
   display: flex
   overflow: hidden
+  @media (min-width: 776px)
+    border-bottom: .5rem solid $white
+    height: calc( 100vh - 6.5rem )
   .text-section, .image-section
     width: 50%
     height: 100%
-    //flex-shrink: 0
   .text-section
-    //background: $primary
     display: flex
     flex-direction: column
     justify-content: space-around
     position: relative
     &:before
+      will-change: width
       position: absolute
       display: block
       content: ""
@@ -24,7 +26,7 @@
     &.animated
       &:before
         animation-name: fullWidth
-        animation-duration: 2s
+        animation-duration: 2.5s
         animation-fill-mode: forwards
         animation-timing-function: cubic-bezier(0, 1.38, 1, 0.16)
 
@@ -38,11 +40,14 @@
       h1
         line-height: 2
         font-weight: bold
+        @media (max-width: 776px)
+          line-height: 2.2
     .hero-description
       max-width: 400px
       margin-bottom: 3rem
       p
         font-weight: bold
+        line-height: 1.5
         color: $secondary
   .image-section
     background: $white
@@ -57,6 +62,7 @@
       position: absolute
       right: -40rem
       max-width: 40rem
+      will-change: right, opacity
       @media (max-width: 480px)
         max-width: 90vw
       &.animated

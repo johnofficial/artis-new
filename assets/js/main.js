@@ -128,6 +128,11 @@ var Common = {
 			var linesNumber = Common.countLines($text);
 			var elementDelay = parseFloat( $(this).attr("data-delay") );
 
+			if ( Common.hasAttr($(this), "data-bgc") ) {
+				var color = $(this).attr("data-bgc");
+			} else {
+				var color = "white";
+			}
 
 			var fontSize = parseFloat($text.css("font-size"));
 			var textHeight = parseFloat($text.css("height"));
@@ -147,7 +152,7 @@ var Common = {
 				var delay = elementDelay + i/8;
 					delay += "s";
 				$spanClone.css({
-					"background-color"  : "white",
+					"background-color"  : color,
 					"height"            : fontSize + add,
 					"transition-delay"  : delay
 				});
@@ -155,21 +160,20 @@ var Common = {
 			}
 		});
 	},
-	triggerAnimation: function () {
+	isScrolledIntoView: function (elem) {
+		var docViewTop = $(window).scrollTop();
+		var docViewBottom = docViewTop + $(window).height();
 
-		function isScrolledIntoView(elem) {
-			var docViewTop = $(window).scrollTop();
-			var docViewBottom = docViewTop + $(window).height();
-	
-			var elemTop = $(elem).offset().top;
-			var elemBottom = elemTop + $(elem).height();
-	
-			return (elemTop <= docViewBottom-100);
-		}
+		var elemTop = $(elem).offset().top;
+		var elemBottom = elemTop + $(elem).height();
+
+		return (elemTop <= docViewBottom-100);
+	},
+	triggerAnimation: function () {
 
 		function handleTriggering() {
 			$('[data-animate]').each(function () {
-				if (isScrolledIntoView(this) === true) {
+				if (Common.isScrolledIntoView(this) === true) {
 					$(this).addClass('animated');
 				}
 			});
@@ -181,8 +185,48 @@ var Common = {
 		handleTriggering();
 
 	},
+	parallaxScroll: function () {
+		var $parallaxElements = $("[data-parallax-effect]");
+
+		$.each($parallaxElements, function (index, $parallaxElement) {
+			var $element = $(this);
+			var offset = $element.offset().top;
+			var defaultTopPosition = $element.css("top");
+
+			$(window).scroll( function () {
+				if ( Common.isScrolledIntoView($element) ) {
+					var docViewTop = $(window).scrollTop();
+					var docViewBottom = docViewTop + $(window).height();
+					var elPos = docViewBottom - offset;
+					$element.css("top", elPos/8);
+				} else {
+					$element.css("top", defaultTopPosition);
+				}
+			});
+		});
+	},
+	scrollToSection: function () {
+		$("body").on("click", "a[href^='#']", function (e) {
+			e.preventDefault();
+			var sectionTarget = $(this).attr("href");
+			var sectionPosition = $(sectionTarget).offset().top;
+
+			$('body,html').animate({
+				scrollTop : sectionPosition
+			}, 500);
+
+		});
+	},
+	hasAttr: function ($element, attrName) {
+		var attr = $element.attr(attrName);
+		if (typeof attr !== typeof undefined && attr !== false) {
+			return true;
+		}
+	},
 	Init: function () {
 		this.coolText();
 		this.triggerAnimation();
+		this.parallaxScroll();
+		this.scrollToSection();
 	}
 }
