@@ -198,7 +198,7 @@ var Common = {
 					var docViewTop = $(window).scrollTop();
 					var docViewBottom = docViewTop + $(window).height();
 					var elPos = docViewBottom - offset;
-					$element.css("top", elPos/8);
+					$element.css("top", elPos/5);
 				} else {
 					$element.css("top", defaultTopPosition);
 				}
