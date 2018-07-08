@@ -253,18 +253,26 @@ body {
   .btn-secondary:before {
     background-color: #6EBDF8; }
 
-.site-header {
-  width: 100%;
-  height: 6rem;
-  background: white; }
-
-.site-footer {
-  width: 100%;
-  height: 16rem;
-  background: rgba(0, 0, 0, 0.91);
-  margin-top: 100px; }
+.underline-title {
+  position: relative;
+  display: inline-block; }
+  .underline-title:before {
+    position: absolute;
+    display: block;
+    content: "";
+    height: .5rem;
+    background: white;
+    width: 0;
+    bottom: 0;
+    left: 0;
+    will-change: width;
+    transition: 1s; }
+  .underline-title.animated:before {
+    width: 100%; }
 
 .btn {
+  display: inline-block;
+  white-space: nowrap;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   padding-top: 1rem;
@@ -274,9 +282,7 @@ body {
   font-size: 1rem;
   color: white;
   border: 6px solid white;
-  position: relative;
-  white-space: nowrap;
-  display: inline-block; }
+  position: relative; }
   .btn span {
     display: inline-block;
     transition-duration: .3s; }
@@ -302,6 +308,17 @@ body {
   .btn:hover i {
     -webkit-transform: scale(2) translateX(1.1rem);
             transform: scale(2) translateX(1.1rem); }
+
+.site-header {
+  width: 100%;
+  height: 6rem;
+  background: white; }
+
+.site-footer {
+  width: 100%;
+  height: 16rem;
+  background: rgba(0, 0, 0, 0.91);
+  margin-top: 100px; }
 
 .hero-section {
   width: 100%;
@@ -432,7 +449,8 @@ body {
   width: 100%;
   display: -ms-flexbox;
   display: flex;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  z-index: 1; }
   @media (min-width: 776px) {
     .about-section {
       height: calc( 100vh - 1rem);
@@ -441,7 +459,10 @@ body {
       border-top: 0.5rem solid white; } }
   @media (max-width: 776px) {
     .about-section {
-      padding: 1rem; } }
+      padding: 4rem; } }
+  @media (max-width: 480px) {
+    .about-section {
+      padding: 2rem; } }
 
 .about-section-wrap {
   width: 1000px;
@@ -483,16 +504,22 @@ body {
         -webkit-animation-name: fullWidthOversizedMobile;
                 animation-name: fullWidthOversizedMobile; } }
 
-@media (max-width: 776px) {
+@media (max-width: 720px) {
   .about-section-wrap .text-wrap {
     margin-top: 6rem;
     position: static;
     margin-left: 6rem;
-    width: calc( 100% - 6rem); }
+    width: calc( 100% - 10rem); }
     .about-section-wrap .text-wrap p {
       font-size: 1rem; }
   .about-section-wrap .about-image {
     position: absolute; } }
+
+@media (max-width: 480px) {
+  .about-section-wrap .text-wrap {
+    margin-top: 2rem;
+    margin-left: 2rem;
+    width: calc( 100% - 2rem); } }
 
 @-webkit-keyframes fullWidthOversized {
   0% {
@@ -517,3 +544,41 @@ body {
     width: 0; }
   100% {
     width: 50vw; } }
+
+.philosophy-section {
+  background: black;
+  box-sizing: border-box;
+  z-index: 2;
+  border-top: 1rem solid white;
+  border-right: 1rem solid white;
+  border-bottom: 1rem solid white;
+  border-left: 1rem solid white;
+  padding: 2rem; }
+  @media (min-width: 776px) {
+    .philosophy-section {
+      height: 100vh;
+      padding: 6rem;
+      border-top: 2rem solid white;
+      border-right: 1.5rem solid white;
+      border-bottom: 2rem solid white;
+      border-left: 1.5rem solid white; } }
+  .philosophy-section h1 {
+    color: white;
+    font-size: 4rem;
+    margin-top: 0; }
+    @media (max-width: 776px) {
+      .philosophy-section h1 {
+        font-size: 2.5rem; } }
+  .philosophy-section .philosophy-description {
+    font-size: 1.5rem;
+    color: #6EBDF8;
+    font-weight: 500;
+    max-width: 35rem;
+    -webkit-filter: grayscale(1);
+            filter: grayscale(1);
+    transition: .6s;
+    transition-delay: 1s;
+    will-change: grayscale; }
+    .philosophy-section .philosophy-description.animated {
+      -webkit-filter: grayscale(0);
+              filter: grayscale(0); }

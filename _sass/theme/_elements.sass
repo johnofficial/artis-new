@@ -1,0 +1,17 @@
+.underline-title
+  position: relative
+  display: inline-block
+  &:before
+    position: absolute
+    display: block
+    content: ""
+    height: .5rem
+    background: $white
+    width: 0
+    bottom: 0
+    left: 0
+    will-change: width
+    transition: 1s
+  &.animated
+    &:before
+      width: 100%

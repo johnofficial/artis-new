@@ -190,6 +190,7 @@ var Common = {
 
 		$.each($parallaxElements, function (index, $parallaxElement) {
 			var $element = $(this);
+			var direction = $element.attr("data-parallax-effect");
 			var offset = $element.offset().top;
 			var defaultTopPosition = $element.css("top");
 
@@ -197,8 +198,10 @@ var Common = {
 				if ( Common.isScrolledIntoView($element) ) {
 					var docViewTop = $(window).scrollTop();
 					var docViewBottom = docViewTop + $(window).height();
-					var elPos = docViewBottom - offset;
-					$element.css("top", elPos/5);
+					var elPos = (docViewBottom - offset) /10;
+					var top = direction+elPos + "px";
+					console.log(top);
+					$element.css("top", top);
 				} else {
 					$element.css("top", defaultTopPosition);
 				}
