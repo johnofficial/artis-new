@@ -167,7 +167,7 @@ var Common = {
 			var offset = $element.offset().top;
 			var defaultTopPosition = $element.css("top");
 
-			$(window).scroll( function () {
+			function handleParallax() {
 				if ( Common.isScrolledIntoView($element) ) {
 					var docViewTop = $(window).scrollTop();
 					var docViewBottom = docViewTop + $(window).height();
@@ -175,19 +175,23 @@ var Common = {
 					var top = direction+elPos + "px";
 					$element.css({
 						"-webkit-transform": "translateY("+top+")",
-					"-moz-transform":  "translateY("+top+")",
-					"-ms-transform":  "translateY("+top+")",
-					"-o-transform": "translateY("+top+")",
-					"transform":  "translateY("+top+")"
+						"-moz-transform":  "translateY("+top+")",
+						"-ms-transform":  "translateY("+top+")",
+						"-o-transform": "translateY("+top+")",
+						"transform":  "translateY("+top+")"
 					});
 				} else {
 					$element.css("top", defaultTopPosition);
 				}
+			}
+			$(window).scroll( function () {
+				handleParallax();
 			});
+			handleParallax();
 		});
 	},
 	handleLinkClick: function () {
-		$("body").on("click", "a:not([target='_blank'], [href^=tel:], [href^=mailto:])", function (e) {
+		$("body").on("click", "a:not([target='_blank'], [href^='tel:'], [href^='mailto:'])", function (e) {
 			e.preventDefault();
 			var href = $(this).attr("href");
 

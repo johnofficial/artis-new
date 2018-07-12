@@ -11,8 +11,8 @@ keywords: artis, image
 
 # HEADER STRINGS #
 site_logo_string: "ARTIS"
-why_artis_url: "#about-section"
-products_and_services_url: "#services-section"
+why_artis_url: "/why-artis/"
+products_and_services_url: "/products-and-services/"
 contact_url: "#contact-section"
 cta_btn_url: "mailto:someone@yoursite.com"
 cta_btn_icon: "mail_outline"

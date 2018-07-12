@@ -1,0 +1,31 @@
+.why-page
+  .hero-section
+    @media (max-width: 768px)
+      padding: 2rem
+    .text-section
+      h1
+        font-size: 4rem
+        margin: 0
+        @media(max-width: 480px)
+          font-size: 2rem
+        strong
+          display: block
+          font-size: 8rem
+          @media(max-width: 480px)
+            font-size: 4rem
+      .hero-description
+        max-width: 100%
+        p
+          color: $black
+          font-weight: 300
+  .hero-section
+    .text-section:before
+      background-color: white
+    .image-section
+      img
+        transition-delay: 0s
+        @media(max-width: 768px)
+          margin-right: -2rem
+        &.animated
+          animation-delay: 0s
+          animation-duration: 1s
