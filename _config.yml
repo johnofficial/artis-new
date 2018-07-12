@@ -6,7 +6,7 @@ include: ["_pages"]
 
 name: ARTIS
 title: ARTIS | Architectural and structural metalwork
-baseurl: "/"
+baseurl:
 keywords: artis, image
 
 # HEADER STRINGS #
