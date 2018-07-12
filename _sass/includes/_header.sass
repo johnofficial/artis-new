@@ -1,4 +1,175 @@
+.mobile-header
+  display: none
 .site-header
   width: 100%
+  box-sizing: border-box
   height: 6rem
   background: $white
+  display: flex
+  .logo
+    align-self: center
+    margin-left: 2rem
+    h1
+      font-size: 2rem
+      margin: 0
+  .cta-icon
+    width: 6rem
+    height: 6rem
+    background: $black
+    display: flex
+    a
+      margin: auto
+    i
+      color: $white
+.site-navigation
+  align-self: center
+  margin-left: auto
+  margin-right: 2rem
+  a
+    color: $black
+    text-transform: uppercase
+    font-size: 1rem
+    font-weight: 500
+    text-decoration: none
+    margin-left: 1rem
+    position: relative
+    z-index: 999
+    &:before
+      position: absolute
+      display: block
+      content: ""
+      width: 0
+      will-change: width
+      height: .15rem
+      background: $black
+      transition: .3s
+      left: 0
+      bottom: 0
+    &:hover,
+    &.active
+      &:before
+        width: 100%
+    &:first-child
+      margin-left: 0
+
+
+@media (max-width: 768px)
+  .site-header
+    display: none
+  .mobile-header
+    display: flex
+    width: 100%
+    height: 5rem
+    justify-content: space-between
+    position: relative
+    .mobile-navigation-wrap
+      left: -100%
+      box-sizing: border-box
+      position: absolute
+      width: 100%
+      height: calc(100vh - 5rem)
+      top: 5rem
+      z-index: 9999
+      background: $black
+      transition: .3s
+      display: flex
+      flex-direction: column
+      justify-content: space-between
+      padding: 2rem
+      &.open-menu
+        left: 0
+        .mobile-navigation
+          a
+            transform: translateX(0)
+      .mobile-navigation
+        overflow: hidden
+        a
+          transition: .3s
+          transform: translateX(100%)
+          text-transform: uppercase
+          font-weight: 500
+          text-decoration: none
+          color: $white
+          font-size: 2rem
+          display: block
+          text-align: right
+          position: relative
+          margin-bottom: 2rem
+          &.active
+            font-weight: 700
+            &:before
+              display: block
+              position: absolute
+              content: ""
+              height: .3rem
+              width: 100%
+              background-color: $white
+              bottom: -.2rem
+    .mobile-cta-icon
+      display: inline-flex
+      align-self: flex-end
+      i
+        margin-left: 1rem
+        align-self: center
+        color: $white
+    .logo
+      align-self: center
+      margin-left: 2rem
+      h1
+        font-size: 2rem
+        margin: 0
+    .hamburger-toggle-wrap
+      align-self: center
+      margin-right: 2rem
+      height: 100%
+      display: flex
+    .hamburger-toggle
+      align-self: center
+      position: relative
+      height: 4rem
+      width: 4rem
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: center
+      text-align: center
+      cursor: inherit
+      &.animated
+        span
+          width: 2.5rem
+        span:before
+          width: 3rem
+        span:after
+          width: 4rem
+      &.open-menu
+        span
+          width: 0
+          background: transparent
+        span:before
+          top: 0
+          transform: rotate(-45deg)
+          width: 4rem
+        span:after
+          bottom: 0
+          transform: rotate(45deg)
+      span,
+      span:before,
+      span:after
+        transform-origin: center
+        right: 0
+        content: ""
+        display: block
+        position: absolute
+        width: 0
+        height: .3rem
+        background: white
+        background: $primary
+        transition: .3s
+      span:before
+        top: -1.2rem
+        transition-delay: .2s
+      span:after
+        bottom: -1.2rem
+        transition-delay: .4s
+
+

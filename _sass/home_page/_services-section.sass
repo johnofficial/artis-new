@@ -1,0 +1,90 @@
+.services-section
+  //box-sizing: border-box
+  display: flex
+  max-width: 100%
+  padding: 1.5rem
+  flex-wrap: wrap
+  background: $light-gray
+  .btn
+    background: $light-gray
+    margin: auto
+    &:before
+      background: $light-gray
+  @media (min-width: 768px)
+    //margin-left: -.5rem
+    //margin-right: -.5rem
+    //padding-left: 1.5rem
+    //padding-right: 1.5rem
+.services-title
+  z-index: 999
+  font-size: 4rem
+  width: 100%
+  display: inline-block
+  transition: 1s
+  opacity: 0
+  will-change: opacity, transform
+  transform: translateY(2rem)
+  text-decoration: underline
+  &.animated
+    opacity: 1
+    transform: translateY(0rem)
+  @media (max-width: 776px)
+    font-size: 2rem
+.services-wrap
+  width: 100%
+  box-sizing: border-box
+  margin: auto
+.other-services
+  text-align: center
+  box-sizing: border-box
+  width: 80%
+  margin: auto
+  font-size: 2rem
+  position: relative
+  font-weight: 200
+  @media (max-width: 480px)
+    width: 100%
+    max-width: 320px
+    font-size: 1.5rem
+  &:after
+    content: ""
+    display: block
+    position: absolute
+    width: 100%
+    height: 100%
+    background: $light-gray
+    top: 0
+    will-change: height
+    transition: 1s
+  &.animated:after
+    height: 0
+.service-unit
+  width: 100%
+  display: flex
+  position: relative
+  &:nth-child(even)
+    flex-direction: row-reverse
+    .service-description
+      left: 0
+.service-image
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: center
+  width: 0
+  height: 40vw
+  transition: 1s
+  will-change: width
+  &.animated
+    width: 60vw
+.service-description
+  width: 60%
+  position: absolute
+  bottom: 0
+  right: 0
+  p
+    font-size: 2rem
+    font-weight: 700
+    line-height: 1.6
+    @media (max-width: 768px)
+      font-size: 1rem
+      line-height: 1.2

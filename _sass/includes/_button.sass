@@ -9,8 +9,14 @@
   font-weight: bold
   font-size: 1rem
   color: $white
-  border: 6px solid $white
+  border: .4rem solid $white
   position: relative
+  @media (min-width: 768px)
+    cursor: pointer
+  &:active
+    outline: none
+  &:focus
+    outline: none
   span
     display: inline-block
     transition-duration: .3s
@@ -18,9 +24,9 @@
     display: block
     content: ""
     position: absolute
-    width: 6px
+    width: .4rem
     height: 0%
-    right: -6px
+    right: -.4rem
     top: calc( 50% - 35% )
     transition: .3s
   i
@@ -35,4 +41,12 @@
       height: 70%
     i
       transform: scale(2) translateX(1.1rem)
+  &.btn-outline
+    border-color: $primary
+    color: $primary
+    background: $white
+    i
+      color: $primary
+    &:before
+      background: $white
 

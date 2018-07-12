@@ -1,3 +1,11 @@
 <footer class="site-footer">
-
+	<nav class="footer-navigation">
+		<a href="{{site.baseurl}}" 						class="{% if page.url == site.baseurl %}active{% endif %}">Home</a>
+		<a href="{{site.why_artis_url}}" 				class="{% if page.url == site.why_artis_url %}active{% endif %}" >Why Artis</a>
+		<a href="{{site.products_and_services_url}}" 	class="{% if page.url == site.products_and_services_url %}active{% endif %}" >PRODUCTS & SERVICES</a>
+		<a href="{{site.contact_url}}" 					class="{% if page.url == site.contact_url %}active{% endif %}" >Contact</a>
+	</nav>
+	<aside class="credits">
+		CREATED BY <a href="https://jovansavic.com/" target="_blank" class="">JOVAN.DESIGN</a>
+	</aside>
 </footer>

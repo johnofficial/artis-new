@@ -2,11 +2,14 @@
   width: 100%
   box-sizing: border-box
   height: calc( 100vh - 6rem )
+  background-color: $white
   display: flex
   overflow: hidden
   @media (min-width: 776px)
     border-bottom: .5rem solid $white
     height: calc( 100vh - 6.5rem )
+  @media (max-width: 768px)
+    height: calc( 100vh - 5rem )
   .text-section, .image-section
     width: 50%
     height: 100%
@@ -20,7 +23,7 @@
       position: absolute
       display: block
       content: ""
-      width: 0%
+      width: 0
       height: 100%
       background: $primary
     &.animated
@@ -28,7 +31,7 @@
         animation-name: fullWidth
         animation-duration: 2.5s
         animation-fill-mode: forwards
-        animation-timing-function: cubic-bezier(0, 1.38, 1, 0.16)
+        animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1) //cubic-bezier(0, 1.38, 1, 0.16)
 
     .text-section-wrap
       display: block
@@ -57,21 +60,23 @@
     position: relative
     img
       opacity: 0
-      transition: 1.5s
-      transition-delay: .9s
-      position: absolute
       right: -40rem
+      position: absolute
       max-width: 40rem
       will-change: right, opacity
+      transition: .3s
       @media (max-width: 480px)
         max-width: 90vw
       &.animated
-        right: 6rem
-        opacity: 1
+        animation-name: showImage
+        animation-duration: 2s
+        animation-delay: .9s
+        animation-fill-mode: forwards
+        animation-timing-function: ease-in-out
         @media (max-width: 776px)
-          right: 2rem
-        @media (max-width: 776px)
-          right: 0
+          animation-name: showImageTablet
+        @media (max-width: 480px)
+          animation-name: showImageMobile
 
 
 
@@ -111,3 +116,25 @@
     width: 0%
   100%
     width: 100%
+
+@keyframes showImage
+  0%
+    opacity: 0
+    right: -40rem
+  100%
+    right: 6rem
+    opacity: 1
+@keyframes showImageTablet
+  0%
+    opacity: 0
+    right: -40rem
+  100%
+    right: 2rem
+    opacity: 1
+@keyframes showImageMobile
+  0%
+    opacity: 0
+    right: -40rem
+  100%
+    right: 0rem
+    opacity: 1

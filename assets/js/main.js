@@ -1,21 +1,16 @@
 $(function() {
-window.scrollBy(0, -1);
-mobileMenu();
-//scrollMenu();
+
 contactForm();
 
-Common.Init();
+setTimeout(function () {
+	$(".preloader").addClass("animated");
+	Common.Init();
+	setTimeout(function () {
+		Common.triggerAnimation();
+	}, 1200);
+}, 1000);
+
 });
-function mobileMenu(){
-  $(".mobile-nav-toggle").on('click', function(){
-    var status = $(this).hasClass('is-open');
-    if(status){
-      $(".mobile-nav-toggle, .mobile-header").removeClass("is-open");
-    }else{
-      $(".mobile-nav-toggle, .mobile-header").addClass("is-open");
-    }
-});
-}
 
 /* Ajax Contact Form */
 function contactForm() {
@@ -68,34 +63,6 @@ function contactForm() {
 	});
 
 }
-
-/*
-function scrollMenu(){
-  var top = 0;
-  $(window).scroll(function(){
-    var position =$(this).scrollTop();
-
-    if (position > top && position > 500 ){
-            //For devices with display smaller then 775px
-            if ($(window).width()< 775) {
-              $(".mobile-header, .novis-header").fadeOut();
-            }else{
-              $(".novis-header").fadeOut();
-            }
-
-    } else if(position < top-20) {
-
-            if ($(window).width()< 775) {
-              $(".novis-header, .mobile-header").fadeIn();
-            }else{
-              $(".novis-header").fadeIn();
-                }
-    }
-    top = position;
-});
-}
-*/
-
 
 var Common = {
 	countLines: function ($target) {
@@ -185,6 +152,12 @@ var Common = {
 		handleTriggering();
 
 	},
+	toggleMobileMenu: function (){
+		$(".hamburger-toggle").on("click", function(){
+			$(this).toggleClass("open-menu");
+			$(".mobile-header-wrap, .mobile-navigation-wrap").toggleClass("open-menu");
+		});
+	},
 	parallaxScroll: function () {
 		var $parallaxElements = $("[data-parallax-effect]");
 
@@ -198,26 +171,36 @@ var Common = {
 				if ( Common.isScrolledIntoView($element) ) {
 					var docViewTop = $(window).scrollTop();
 					var docViewBottom = docViewTop + $(window).height();
-					var elPos = (docViewBottom - offset) /10;
+					var elPos = (docViewBottom - offset)/10;
 					var top = direction+elPos + "px";
-					console.log(top);
-					$element.css("top", top);
+					$element.css({
+						"-webkit-transform": "translateY("+top+")",
+					"-moz-transform":  "translateY("+top+")",
+					"-ms-transform":  "translateY("+top+")",
+					"-o-transform": "translateY("+top+")",
+					"transform":  "translateY("+top+")"
+					});
 				} else {
 					$element.css("top", defaultTopPosition);
 				}
 			});
 		});
 	},
-	scrollToSection: function () {
-		$("body").on("click", "a[href^='#']", function (e) {
+	handleLinkClick: function () {
+		$("body").on("click", "a:not([target='_blank'], [href^=tel:], [href^=mailto:])", function (e) {
 			e.preventDefault();
-			var sectionTarget = $(this).attr("href");
-			var sectionPosition = $(sectionTarget).offset().top;
+			var href = $(this).attr("href");
 
-			$('body,html').animate({
-				scrollTop : sectionPosition
-			}, 500);
-
+			if ( href[0] == "#" ) {
+				var sectionTarget = $(this).attr("href");
+				var sectionPosition = $(sectionTarget).offset().top;
+				$('body,html').animate({
+					scrollTop : sectionPosition
+				}, 500);
+			} else {
+				$(".preloader").removeClass("animated");
+				setTimeout(function(){window.location.href = href;}, 1000);
+			}
 		});
 	},
 	hasAttr: function ($element, attrName) {
@@ -228,8 +211,8 @@ var Common = {
 	},
 	Init: function () {
 		this.coolText();
-		this.triggerAnimation();
 		this.parallaxScroll();
-		this.scrollToSection();
+		this.handleLinkClick();
+		this.toggleMobileMenu();
 	}
 }
