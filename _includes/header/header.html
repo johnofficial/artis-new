@@ -3,7 +3,7 @@
 		<h1>{{site.site_logo_string}}</h1>
 	</div>
 	<nav class="site-navigation">
-		<a href="{{site.baseurl}}/" 						class="{% if page.url == '/' %}active{% endif %}">Home</a>
+		<a href="{{site.baseurl}}" 						style="transition-delay: .2s;" class="{% if page.url == site.baseurl %}active{% endif %}">Home</a>
 		<a href="{{site.why_artis_url}}" 				class="{% if page.url == site.why_artis_url %}active{% endif %}" >Why Artis</a>
 		<a href="{{site.products_and_services_url}}" 	class="{% if page.url == site.products_and_services_url %}active{% endif %}" >PRODUCTS & SERVICES</a>
 		<a href="{{site.contact_url}}" 					class="{% if page.url == site.contact_url %}active{% endif %}" >Contact</a>
@@ -27,7 +27,7 @@
 	</div>
 	<div class="mobile-navigation-wrap">
 		<nav class="mobile-navigation">
-			<a href="{{site.baseurl}}/" 					style="transition-delay: .2s;" class="{% if page.url == '/' %}active{% endif %}">Home</a>
+			<a href="{{site.baseurl}}" 						style="transition-delay: .2s;" class="{% if page.url == site.baseurl %}active{% endif %}">Home</a>
 			<a href="{{site.why_artis_url}}" 				style="transition-delay: .4s;" class="{% if page.url == site.why_artis_url %}active{% endif %}" >Why Artis</a>
 			<a href="{{site.products_and_services_url}}" 	style="transition-delay: .6s;" class="{% if page.url == site.products_and_services_url %}active{% endif %}" >PRODUCTS & SERVICES</a>
 			<a href="{{site.contact_url}}" 					style="transition-delay: .8s;" class="{% if page.url == site.contact_url %}active{% endif %}" >Contact</a>
