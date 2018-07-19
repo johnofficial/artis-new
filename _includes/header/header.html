@@ -1,9 +1,9 @@
 <header class="site-header">
 	<div class="logo">
-		<h1>{{site.site_logo_string}}</h1>
+		<h2>{{site.site_logo_string}}</h2>
 	</div>
 	<nav class="site-navigation">
-		<a href="/" 						style="transition-delay: .2s;" class="{% if page.url == '/' %}active{% endif %}">Home</a>
+		<a href="{{site.baseurl}}/" 						style="transition-delay: .2s;" class="{% if page.url == '/' %}active{% endif %}">Home</a>
 		<a href="{{site.baseurl}}{{site.why_artis_url}}" 				class="{% if page.url == site.why_artis_url %}active{% endif %}" >Why Artis</a>
 		<a href="{{site.baseurl}}{{site.products_and_services_url}}" 	class="{% if page.url == site.products_and_services_url %}active{% endif %}" >PRODUCTS & SERVICES</a>
 		<a href="{{site.baseurl}}{{site.contact_url}}" 					class="{% if page.url == site.contact_url %}active{% endif %}" >Contact</a>
@@ -18,7 +18,7 @@
 
 <header class="mobile-header">
 	<div class="logo">
-		<h1>{{site.site_logo_string}}</h1>
+		<h2>{{site.site_logo_string}}</h2>
 	</div>
 	<div class="hamburger-toggle-wrap">
 		<div class="hamburger-toggle" data-animate>
@@ -27,7 +27,7 @@
 	</div>
 	<div class="mobile-navigation-wrap">
 		<nav class="mobile-navigation">
-			<a href="/" 						style="transition-delay: .2s;" class="{% if page.url == '/' %}active{% endif %}">Home</a>
+			<a href="{{site.baseurl}}/" 						style="transition-delay: .2s;" class="{% if page.url == '/' %}active{% endif %}">Home</a>
 			<a href="{{site.baseurl}}{{site.why_artis_url}}" 				class="{% if page.url == site.why_artis_url %}active{% endif %}" >Why Artis</a>
 			<a href="{{site.baseurl}}{{site.products_and_services_url}}" 	class="{% if page.url == site.products_and_services_url %}active{% endif %}" >PRODUCTS & SERVICES</a>
 			<a href="{{site.baseurl}}{{site.contact_url}}" 					class="{% if page.url == site.contact_url %}active{% endif %}" >Contact</a>

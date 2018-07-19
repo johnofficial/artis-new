@@ -3,11 +3,14 @@ markdown: redcarpet
 highlighter: pygments # or rouge or null
 exclude: ["node_modules", "gulpfile.js", "package.json"]
 include: ["_pages"]
+sass:
+  style: compressed
 
 name: ARTIS
-title: ARTIS | Architectural and structural metalwork
+title: Artis | Architectural and structural metalwork
 baseurl:
 keywords: artis, image
+description: Creating a customized solution of your dreams. Let a team of highly skilled draughtsmen, fabricators and designers to give the best of themselves when delivering quality and satisfaction along with the work of art YOU desire.
 
 # HEADER STRINGS #
 site_logo_string: "ARTIS"

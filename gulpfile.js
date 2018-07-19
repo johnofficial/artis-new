@@ -2,6 +2,8 @@ var gulp        = require('gulp');
 var browserSync = require('browser-sync');
 var sass        = require('gulp-sass');
 var prefix      = require('gulp-autoprefixer');
+var minifyCSS      = require('gulp-clean-css');
+var minifyjs = require('gulp-js-minify');
 var cp          = require('child_process');
 
 var jekyll   = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
@@ -25,6 +27,12 @@ gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
     browserSync.reload();
 });
 
+gulp.task('minify-js', function(){
+	gulp.src('assets/js/main.js')
+		.pipe(minifyjs())
+		.pipe(gulp.dest('_site/assets/js'));
+});
+
 /**
  * Wait for jekyll-build, then launch the Server
  */
@@ -46,6 +54,7 @@ gulp.task('sass', function () {
             onError: browserSync.notify
         }))
         .pipe(prefix(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
+	    .pipe(minifyCSS({compatibility: 'ie8'}))
         .pipe(gulp.dest('_site/assets/css'))
         .pipe(browserSync.reload({stream:true}))
         .pipe(gulp.dest('assets/css'));
